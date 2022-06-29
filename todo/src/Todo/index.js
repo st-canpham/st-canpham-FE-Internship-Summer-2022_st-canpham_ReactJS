@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import { getStorage, setStorage } from './common';
-import { listKeys } from './constant';
+import { getStorage, setStorage } from '../shared/common';
+import { listKeys } from '../shared/constant';
 import FormTodo from './FormTodo';
 import ListTodo from './ListTodo';
 import '../App.css';
 
-function App() {
+function Todo() {
   const todoListLocal = getStorage(listKeys.todoList);
   const [todo, setTodo] = useState('');
   const [todoList, setTodoList] = useState(todoListLocal || []);
@@ -33,19 +33,19 @@ function App() {
   return (
     <div className="container">
       <div className="todo">
-      <h1 className="todo-title">Todo App</h1>
-      <FormTodo 
-        addTodo = {addTodo}
-        todoItem = {todo}
-        setTodo = {setTodo}
-      />
-      <ListTodo 
-        todoList = {todoList}
-        removeTodo = {removeTodo}
-      />
+        <h1 className="todo-title">Todo App</h1>
+        <FormTodo 
+          addTodo = {addTodo}
+          todoItem = {todo}
+          setTodo = {setTodo}
+        />
+        <ListTodo 
+          todoList = {todoList}
+          removeTodo = {removeTodo}
+        />
       </div>
     </div>
   );
 }
 
-export default App;
+export default Todo;
